@@ -69,21 +69,21 @@ python scripts/make_card.py \
 一条文案超过 5 句时，**不要拉成一张长图**，拆成多张卡效果更好：
 
 - **每张 4-5 句**（含首条大图那句），超过 5 句就再拆一张
-- **首张 4-5 句**：用户一张图就能读完一个完整观点，收获感最强；一张塞 8-9 句会变成"扫过去没记住"
-- **拆分点取语义完整处**：按"讲原因 / 讲转折 / 讲结论"切段，不在半句处断
+- **首张优先 5 句**（4 句为下限）：用户一张图就能读完一个完整观点，收获感最强；一张塞 8-9 句会变成"扫过去没记住"
+- **拆分点取语义完整处**：按"讲原因 / 讲转折 / 讲结论"切段，不在半句处断（允许在因果处留钩子：上篇给因，下篇给果）
 - **各张换不同首图帧**，系列感有、又不重复
 - 命名 `主题_上.png` / `主题_下.png`，同批一起发
 
-9 句文案拆 4+5 的例子：
+9 句文案拆 5+4 的例子：
 
 ```bash
-# 上篇（4 句，首图 t2）
-python scripts/make_card.py --images t2.jpg f2.jpg f3.jpg f4.jpg \
-  --lines "句1|句2|句3|句4" --crops "top:400,top:1250,top:1250,top:1250" --out 主题_上.png
+# 上篇（5 句，首图 t2）
+python scripts/make_card.py --images t2.jpg f2.jpg f3.jpg f4.jpg f8.jpg \
+  --lines "句1|句2|句3|句4|句5" --crops "top:400,top:1250,top:1250,top:1250,top:1250" --out 主题_上.png
 
-# 下篇（5 句，换首图 f7）
-python scripts/make_card.py --images f7.jpg f5.jpg f6.jpg f8.jpg f9.jpg f1.jpg \
-  --lines "句5|句6|句7|句8|句9" --crops "top:380,top:1250,top:1250,top:1250,top:1250,top:1200" --out 主题_下.png
+# 下篇（4 句，换首图 f7）
+python scripts/make_card.py --images f7.jpg f5.jpg f6.jpg f9.jpg \
+  --lines "句6|句7|句8|句9" --crops "top:380,top:1250,top:1250,top:1250" --out 主题_下.png
 ```
 
 ## 常用参数
